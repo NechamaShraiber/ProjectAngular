@@ -14,10 +14,10 @@ const headerRoutes: Routes = [
     { path: 'BooksStore/cart', component: CartComponent },
     { path: 'BooksStore/products', component: ProductsComponent },
     {
-        path: 'BooksStore/account', children: [{
+        path: 'BooksStore/account', component: AccountComponent, children: [{
             path: 'register',
             component: RegisterComponent
-        }], component: AccountComponent
+        }]
     },
     // otherwise redirect to home
     { path: '**', redirectTo: 'BooksStore' }
