@@ -10,6 +10,9 @@ import { AccountComponent } from './main/account/account.component';
 import { ProductsComponent } from './main/products/products.component';
 import { ProductDetailsComponent } from './main/product-details/product-details.component';
 import { CartComponent } from './main/cart/cart.component';
+import { LoginComponent } from './main/account/login/login.component';
+import { RegisterComponent } from './main/account/register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,21 @@ import { CartComponent } from './main/cart/cart.component';
     AccountComponent,
     ProductsComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+
