@@ -12,9 +12,12 @@ store:Store;
     this.store=new Store();
     this.store.id=1;
     this.store.name="Look in book";
-    this.store.city="beni-brak";
-    this.store.street="rabi Akiva";
-    this.store.numHouse=45;
+    this.store.address={
+      city:"beni-brak",
+      street:"rabi Akiva",
+      numHouse:45
+    }
+ 
     this.store.picture="../../../assets/Images/StoreImg.jpg";
 
    }
