@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="submitLogin()">
+<form [formGroup]="formGroup" (ngSubmit)="submitRegister()">
 
   <div *ngFor="let x of obj.keys(formGroup.controls)">
       <label>{{x}}:</label>
@@ -9,7 +9,8 @@
       </div>
 
   </div>
-
-  <input type="submit" value="Login" [disabled]="formGroup.invalid" />
+<!-- <input type="file" formControlName="profilePicture" /> 
+<br> -->
+  <input type="submit" value="Register" [disabled]="formGroup.invalid" />
 
 </form>

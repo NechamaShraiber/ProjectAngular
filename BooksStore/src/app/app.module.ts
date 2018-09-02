@@ -9,25 +9,14 @@ import { AccountComponent } from './main/account/account.component';
 import { ProductsComponent } from './main/products/products.component';
 import { ProductDetailsComponent } from './main/product-details/product-details.component';
 import { CartComponent } from './main/cart/cart.component';
-<<<<<<< HEAD
-
-import { LoginComponent } from './main/account/login/login.component';
-import { RegisterComponent } from './main/account/register/register.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
-import { FooterComponent } from './footer/footer.component';
-
-import { headerRouting } from './header/header.route';
 import { UserService } from './shared/services/user.service';
-=======
 import { LoginComponent } from './main/account/login/login.component';
 import { RegisterComponent } from './main/account/register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-
 import { headerRouting } from './header/header.route';
+import { HttpClientModule } from '@angular/common/http';
 
->>>>>>> 81edaff4f1bddd96fd2c1d0940b128b3da907ed1
 
 @NgModule({
   declarations: [
@@ -47,7 +36,9 @@ import { headerRouting } from './header/header.route';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    headerRouting
+    headerRouting,
+    HttpClientModule
+
   ],
   providers: [
     UserService
