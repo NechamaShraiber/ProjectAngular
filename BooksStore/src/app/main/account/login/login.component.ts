@@ -23,7 +23,7 @@ export class LoginComponent {
     if (this.userService.isPersonInList(this.formGroup.value)) {
 alert("the person is ok")
     }
-    else alert("person is not ok";)
+    else alert("person is not ok");
   }
   createValidatorArr(cntName: string, min: number, max: number, reg: RegExp): Array<ValidatorFn> {
     return [
