@@ -4,6 +4,6 @@
 <nav>
     <a routerLink="/BooksStore/products" routerLinkActive="active">products</a>
     <a routerLink="/BooksStore/account" routerLinkActive="active">my account</a>
-    <a routerLink="/BooksStore/cart" routerLinkActive="active">my cart</a>
+    <a *ngIf="isAnonymous" routerLink="/BooksStore/cart" routerLinkActive="active">my cart</a>
 </nav>
 <router-outlet></router-outlet>
