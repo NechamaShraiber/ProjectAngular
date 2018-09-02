@@ -9,10 +9,7 @@ import { AccountComponent } from './main/account/account.component';
 import { ProductsComponent } from './main/products/products.component';
 import { ProductDetailsComponent } from './main/product-details/product-details.component';
 import { CartComponent } from './main/cart/cart.component';
-<<<<<<< HEAD
-=======
 
->>>>>>> 4729318a4735c45c651642cb8d46eeb710a5bb88
 import { UserService } from './shared/services/user.service';
 import { LoginComponent } from './main/account/login/login.component';
 import { RegisterComponent } from './main/account/register/register.component';
@@ -20,11 +17,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { headerRouting } from './header/header.route';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { BooksService } from './shared/services/books.service';
-=======
->>>>>>> 4729318a4735c45c651642cb8d46eeb710a5bb88
-
 
 @NgModule({
   declarations: [
