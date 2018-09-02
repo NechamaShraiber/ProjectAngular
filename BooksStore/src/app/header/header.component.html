@@ -2,9 +2,15 @@
 <img src={{userProfilePicture}}>
 
 <nav>
+<<<<<<< HEAD
     <a routerLink="/BooksStore/products" routerLinkActive="active">products </a>
     <a routerLink="/BooksStore/account" routerLinkActive="active">my account </a>
     <a *ngIf="isAnonymous" routerLink="/BooksStore/cart" routerLinkActive="active">my cart</a>
+=======
+    <a routerLink="/BooksStore/products" routerLinkActive="active">products</a>
+    <a routerLink="/BooksStore/account">my account</a>
+    <a *ngIf="isAnonymous" routerLink="/BooksStore/cart">my cart</a>
+>>>>>>> 4729318a4735c45c651642cb8d46eeb710a5bb88
     
 </nav>
 <router-outlet></router-outlet>
