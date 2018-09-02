@@ -4,6 +4,7 @@ import { CartComponent } from '../main/cart/cart.component';
 import { ProductsComponent } from '../main/products/products.component';
 import { AccountComponent } from '../main/account/account.component';
 import { HomeComponent } from '../main/home/home.component';
+import { RegisterComponent } from '../main/account/register/register.component';
 
 //  import { AuthGuard } from './shared/auth.guard';//vhjhvjvj
 const headerRoutes: Routes = [
@@ -12,7 +13,12 @@ const headerRoutes: Routes = [
     { path: 'BooksStore', redirectTo: 'BooksStore/home' },
     { path: 'BooksStore/cart', component: CartComponent },
     { path: 'BooksStore/products', component: ProductsComponent },
-    { path: 'BooksStore/account', component: AccountComponent },
+    {
+        path: 'BooksStore/account', children: [{
+            path: 'register',
+            component: RegisterComponent
+        }], component: AccountComponent
+    },
     // otherwise redirect to home
     { path: '**', redirectTo: 'BooksStore' }
 ];

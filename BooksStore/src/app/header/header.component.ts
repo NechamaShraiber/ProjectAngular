@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   userName: string = "guest";
-  userProfile: string = "https://www.drupal.org/files/profile_default.jpg";
+  userProfilePicture: string = "https://www.drupal.org/files/profile_default.jpg";
   isAnonymous: boolean;
+
   constructor() {
-    // check realy from the local storage!!!!!!!!!!!!!
-    if (localStorage["user"])
+    if (localStorage["user"]) {
       this.isAnonymous = true;
+      this.userName=localStorage["user"].UserName;
+      this.userProfilePicture=localStorage["user"].profilePicture;
+    }
     else this.isAnonymous = false;
   }
 
