@@ -6,11 +6,13 @@ import { AccountComponent } from './main/account/account.component';
 import { HomeComponent } from './main/home/home.component';
 import { RegisterComponent } from './main/account/register/register.component';
 import { LoginComponent } from './main/account/login/login.component';
+import { ProductDetailsComponent } from './main/product-details/product-details.component';
+import { ProductPreviewComponent } from './main/products/product-preview/product-preview.component';
 
 //  import { AuthGuard } from './shared/auth.guard';//vhjhvjvj
 const headerRoutes: Routes = [
     //  { path: 'AuthRout/home', component: AccountComponent, canActivate: [AuthGuard] },
-    { path: 'BooksStore/home', component: HomeComponent },
+    { path: 'BooksStore/home', component: HomeComponent, },
     { path: 'BooksStore', redirectTo: 'BooksStore/home' },
     { path: 'BooksStore/cart', component: CartComponent },
     { path: 'BooksStore/products', component: ProductsComponent },
@@ -22,7 +24,12 @@ const headerRoutes: Routes = [
 
         ]
     },
+    { path: 'BooksStore/productsDeatails', component: ProductDetailsComponent },
+    { path: '', redirectTo: 'BooksStore' },
+   // { path: 'BooksStore/productsPreview', component: ProductPreviewComponent },
     // otherwise redirect to home
-    { path: '**', redirectTo: 'BooksStore' }
+    { path: '**', redirectTo: 'BooksStore' },
+    
+    
 ];
 export const headerRouting = RouterModule.forRoot(headerRoutes);

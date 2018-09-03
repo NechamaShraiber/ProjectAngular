@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '../../../../../node_modules/@angular/router';
+import { query } from '../../../../../node_modules/@angular/core/src/render3/query';
 
 @Component({
   selector: 'app-product-preview',
@@ -8,13 +10,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductPreviewComponent implements OnInit {
 
  @Input() book:any;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
   viewDeatails()
   {
-    console.log(this.book)
-    alert("I go to deatails")
+  
+
+ this.router.navigate(['BooksStore/productsDeatails', this.book.volumeInfo]);
+   
   }
 }
