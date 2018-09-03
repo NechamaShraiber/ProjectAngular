@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserService } from '../../../shared/services/user.service';
-import { AuthenticationService } from '../../../shared/services/authenticating.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,9 +12,8 @@ export class RegisterComponent {
   registerForm: any;
   isAnonymous:Boolean;
   // profilePicture:FormControl;
-  constructor(private userService: UserService, private authenticationService: AuthenticationService) {
+  constructor(private userService: UserService ) {
     this.initFormgroup();
-    this.isAnonymous=this.authenticationService.isAnonymous;
 
   }
 
@@ -32,7 +30,6 @@ export class RegisterComponent {
   submitRegister() {
     console.log(this.formGroup.value);
     localStorage.setItem('user', JSON.stringify(this.formGroup.value));
-    this.authenticationService.isAnonymousSubject.next(true);
     this.userService.addUser(this.formGroup.value);
   }
 

@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     if (localStorage["user"]) {
       this.isAnonymous = true;
-      this.userName=localStorage["user"].UserName;
+      this.userName=localStorage["user"]["UserName"];
       this.userProfilePicture=localStorage["user"].profilePicture;
     }
     else this.isAnonymous = false;
@@ -22,5 +22,5 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
 }
