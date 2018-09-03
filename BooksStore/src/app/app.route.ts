@@ -25,10 +25,10 @@ const headerRoutes: Routes = [
         ]
     },
     { path: 'BooksStore/productsDeatails', component: ProductDetailsComponent },
-    { path: '', redirectTo: 'BooksStore' },
+    
    // { path: 'BooksStore/productsPreview', component: ProductPreviewComponent },
     // otherwise redirect to home
-    { path: '**', redirectTo: 'BooksStore' },
+    { path: '**', redirectTo: 'BooksStore/home' },
     
     
 ];
