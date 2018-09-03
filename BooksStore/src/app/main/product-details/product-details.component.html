@@ -1,3 +1,11 @@
 <p>
   product-details works!
 </p>
+<img src={{book.picture}}>
+<div>
+  <P>deatails:</P>
+<label >{{book.title}}</label>
+<label >{{book.subTitle}}</label>
+</div>
+<input type="button" value="add cart" (click)="addCart()">
+<input type="button" value="go back" (click)="returnProduct()">

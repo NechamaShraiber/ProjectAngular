@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
@@ -9,7 +8,6 @@ import { AccountComponent } from './main/account/account.component';
 import { ProductsComponent } from './main/products/products.component';
 import { ProductDetailsComponent } from './main/product-details/product-details.component';
 import { CartComponent } from './main/cart/cart.component';
-
 import { UserService } from './shared/services/user.service';
 import { LoginComponent } from './main/account/login/login.component';
 import { RegisterComponent } from './main/account/register/register.component';
@@ -19,6 +17,7 @@ import { headerRouting } from './header/header.route';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './shared/services/books.service';
 import { ProductPreviewComponent } from './main/products/product-preview/product-preview.component';
+import { CartProduactComponent } from './main/cart/cart-produact/cart-produact.component';
 
 
 @NgModule({
@@ -35,6 +34,7 @@ import { ProductPreviewComponent } from './main/products/product-preview/product
     LoginComponent,
     RegisterComponent,
     ProductPreviewComponent,
+    CartProduactComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,37 @@
-<form [formGroup]="formGroup" (ngSubmit)="submitRegister()">
+<div class="login-page">
+  <div class="form">
+    <form [formGroup]="formGroup" (ngSubmit)="submitRegister()" class="login-form">
 
-  <div *ngFor="let x of obj.keys(formGroup.controls)">
-      <label>{{x}}:</label>
-      <input formControlName="{{x}}" />
+      <div *ngFor="let x of obj.keys(formGroup.controls)">
+        <label>{{x}}:</label>
+        <input formControlName="{{x}}" />
 
-      <div *ngIf="formGroup.controls[x].errors">
+        <div *ngIf="formGroup.controls[x].errors">
           <p *ngFor="let err of obj.values(formGroup.controls[x].errors)">{{err}}</p>
+        </div>
+
       </div>
-
-  </div>
-<!-- <input type="file" formControlName="profilePicture" /> 
+      <!-- <input type="file" formControlName="profilePicture" /> 
 <br> -->
-  <input type="submit" value="Register" [disabled]="formGroup.invalid" />
+      <input type="submit" value="Register" [disabled]="formGroup.invalid" />
 
-</form>
+    </form>
+  </div>
+</div>
+<!-- <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div> -->
