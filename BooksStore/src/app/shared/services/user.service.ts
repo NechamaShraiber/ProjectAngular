@@ -22,7 +22,7 @@ export class UserService {
 
 
 
-    addPerson(user) {
+    addUser(user) {
         user.profilePicture = "../../assets/Images/user1.jpg"
         this.users.push(user);
 
@@ -34,7 +34,7 @@ export class UserService {
     //     console.log("user not added to list")
     // }
     //   }
-    isPersonInList(loginer) {
+    isExistingUser(loginer) {
         return this.users.find(r => r.UserName == loginer.UserName && r.password == loginer.Password)
     }
 }
