@@ -2,8 +2,8 @@
   account works!
 </p>
 <nav>
-    <a routerLink="/login" routerLinkActive="active">log-in</a>
-    <a routerLink="/register" routerLinkActive="active">register</a>
-    <!-- <a *ngIf="isAnonymous" routerLink="/BooksStore/cart" routerLinkActive="active">my cart</a> -->
+    <a routerLink="login" routerLinkActive="active" *ngIf="!isAnonymous">log-in</a><br>
+    <a routerLink="register" routerLinkActive="active" *ngIf="!isAnonymous">register</a><br>
+    <a routerLink="logout" routerLinkActive="active" *ngIf="isAnonymous">logout</a><br>
 </nav>
 <router-outlet></router-outlet>

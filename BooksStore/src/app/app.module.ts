@@ -13,11 +13,13 @@ import { LoginComponent } from './main/account/login/login.component';
 import { RegisterComponent } from './main/account/register/register.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
-import { headerRouting } from './header/header.route';
+import { headerRouting } from './app.route';
 import { HttpClientModule } from '@angular/common/http';
-import { BooksService } from './shared/services/books.service';
 import { ProductPreviewComponent } from './main/products/product-preview/product-preview.component';
 import { CartProduactComponent } from './main/cart/cart-produact/cart-produact.component';
+
+import { BooksService } from './shared/services/books.service';
+import { AuthenticationService } from './shared/services/authenticating.service';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { CartProduactComponent } from './main/cart/cart-produact/cart-produact.c
 
   ],
   providers: [
-    UserService, BooksService
+    UserService, 
+    BooksService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
