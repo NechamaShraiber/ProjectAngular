@@ -1,10 +1,13 @@
 <p>hello {{userName}}</p>
 <img src={{userProfilePicture}}>
 
-<nav>
-    <a routerLink="/BooksStore/products" routerLinkActive="active">products </a>
-    <a routerLink="/BooksStore/account" routerLinkActive="active">my account </a>
-    <a *ngIf="isAnonymous" routerLink="/BooksStore/cart" routerLinkActive="active">my cart</a>
-    
-</nav>
+<div class="navbar navbar default">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li  routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/products" class="nav-link">products</a></li>
+            <li routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/account" class="nav-link">my account</a></li>
+            <li *ngIf="isAnonymous" routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/cart" class="nav-link">my cart</a></li>
+        </ul>
+    </div>
+</div>
 <router-outlet></router-outlet>
