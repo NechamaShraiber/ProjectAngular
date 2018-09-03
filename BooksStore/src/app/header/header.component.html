@@ -1,13 +1,23 @@
-<p>hello {{userName}}</p>
-<img src={{userProfilePicture}}>
-
-<div class="navbar navbar default">
-    <div class="container">
-        <ul class="nav navbar-nav">
-            <li  routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/products" class="nav-link">products</a></li>
-            <li routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/account" class="nav-link">my account</a></li>
-            <li *ngIf="isAnonymous" routerLinkActive="active" class="nav-item active"><a routerLink="/BooksStore/cart" class="nav-link">my cart</a></li>
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="navbar navbar default col-md-8">
+            <div class="container">
+                <ul class="nav navbar-nav row">
+                    <li routerLinkActive="active" class="nav-item active">
+                        <a routerLink="/BooksStore/products" class="nav-link">products</a>
+                    </li>
+                    <li routerLinkActive="active" class="nav-item active">
+                        <a routerLink="/BooksStore/account" class="nav-link">my account</a>
+                    </li>
+                    <li *ngIf="isAnonymous" routerLinkActive="active" class="nav-item active">
+                        <a routerLink="/BooksStore/cart" class="nav-link">my cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img src={{userProfilePicture}}>
+            <p>hello {{userName}}</p>
+        </div>
     </div>
 </div>
-<router-outlet></router-outlet>
