@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { headerRouting } from './header/header.route';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './shared/services/books.service';
+import { ProductPreviewComponent } from './main/products/product-preview/product-preview.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { BooksService } from './shared/services/books.service';
     CartComponent,
     LoginComponent,
     RegisterComponent,
+    ProductPreviewComponent,
   ],
   imports: [
     BrowserModule,
