@@ -16,7 +16,7 @@ export class CartProduactComponent implements OnInit {
   }
   removeFromCart()
   {
-    
+
       this.bookService.subject
       .next(this.book);
   }

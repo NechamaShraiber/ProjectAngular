@@ -2,14 +2,19 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require("body-parser");
-
+const cors = require('cors')
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-// curl -v -X POST -H "Content-type: application/json" -d "{\"name\":\"test\", \"pass\":\"1234\" }" http://localhost:3500/api/user
+// curl -v -X POST -H "Content-type: application/json" -d "{\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/login
+// curl -v -X POST -H "Content-type: application/json" -d "{\"UserName\":\"fgf\",\"password\":\"0548541419\" }" http://localhost:3500/api/login
+// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehudit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/register
+// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehu3dit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/register
+// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehudit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"12\" }" http://localhost:3500/api/register
 
 app.get(`/api/users`, (req, res) => {
     let currentList = require("./users.json");
@@ -17,21 +22,23 @@ app.get(`/api/users`, (req, res) => {
 });
 
 function validName(name) {
-    return name.length >= 3 && name.length <= 15 && name.match(/[a-z]/i);
+    console.log(name.length);
+    return name.length >= 3 && name.length <= 15 && name.match(/^[ a-zA-Z]*$/);
 }
 
 function validPassword(password) {
-    return password.length <= 5 && password.length >= 10;
+    console.log(password.length);
+    return password.length >= 5 && password.length <= 10;
 }
 
 function isValidLoginner(user) {
-    if (!(validName(user["UserName"]) && validPassword(user["password"])))
+    if (!(validName(user["UserName"]) && validPassword(user["Password"])))
         return false;
     return true;
 }
 
 function isValidRegister(user) {
-    if (!(validName(user["FirstName"]) && validName(user["LastName"]) && validName(user["UserName"]) && validPassword(user["password"])))
+    if (!(validName(user["FirstName"]) && validName(user["LastName"]) && validName(user["UserName"]) && validPassword(user["Password"])))
         return false;
     return true;
 }
@@ -39,15 +46,21 @@ app.post("/api/login", (req, res) => {
     console.log(req.body);
     if (isValidLoginner(req.body)) {
         let currentList = require("./users.json");
-        let user = currentList.find(user => { req.body["UserName"] == user.UserName && req.body["password"] == user.password })
-        if (user != null)
-            res.status(201).send(user);
-        else
-            res.status(201).send(null);
+        let user = currentList.find(user => {return req.body["UserName"] == user.UserName && req.body["Password"] == user.Password})
+        console.log(user);
+        if (user != null) {
+            console.log("added" + JSON.stringify(user));
+            res.status(201).send(JSON.stringify(user));
+        }
+        else {
+            console.log("not added");
+            res.status(400).send();
+        }
     }
     else res.status(400).send();
 })
 app.post("/api/register", (req, res) => {
+    console.log("post");
     console.log(req.body);
     if (isValidRegister(req.body)) {
         let currentList = require("./users.json");
@@ -56,7 +69,7 @@ app.post("/api/register", (req, res) => {
         console.log("good!!!");
         res.status(201).send(JSON.stringify(currentList));
     }
-    else{
+    else {
         console.log("bad...");
         res.status(400);
     }

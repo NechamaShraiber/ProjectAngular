@@ -19,8 +19,10 @@ export class LoginComponent {
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitLogin() {
-    console.log(this.formGroup.value);
-    if (this.userService.isExistingUser(this.formGroup.value)) {
+    console.log("first submit login "+this.formGroup.value);
+    let loginer=this.userService.isExistingUser(this.formGroup.value);
+    console.log(loginer);
+    if (loginer) {
       alert("the person is ok")
     }
     else alert("person is ok");
