@@ -19,13 +19,9 @@ const headerRoutes: Routes = [
             { path: 'register', component: RegisterComponent , canActivate: [CanActivateIfNotLogin] },
             { path: 'login', component: LoginComponent ,canActivate: [CanActivateIfNotLogin]},
              {path:'logout',component:LoginComponent}
-
         ]
     },
     { path: 'BooksStore/productsDeatails', component: ProductDetailsComponent },
-    
-   // { path: 'BooksStore/productsPreview', component: ProductPreviewComponent },
-    // otherwise redirect to home
     { path: '**', redirectTo: 'BooksStore/home' },
     
     

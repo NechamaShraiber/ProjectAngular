@@ -19,6 +19,7 @@ import { ProductPreviewComponent } from './main/products/product-preview/product
 import { CartProduactComponent } from './main/cart/cart-produact/cart-produact.component';
 
 import { BooksService } from './shared/services/books.service';
+import { CartService } from './shared/services/cart.service';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { BooksService } from './shared/services/books.service';
   ],
   providers: [
     UserService, 
-    BooksService
+    BooksService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

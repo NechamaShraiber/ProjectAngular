@@ -1,12 +1,8 @@
 <h5>search:</h5>
 <input type="text" (keyup)="onKeyUp($event)">
-<button (click)="f()">תמונות</button><button (click)="try()">try</button>
+<button (click)="f()">תמונות</button>
 <ul class="row">
-    <li  *ngFor="let book of books[0]" class=" col-md-4" >
-       <app-product-preview  [book]="book"></app-product-preview>
+    <li *ngFor="let book of books[0]" class=" col-md-4">
+        <app-product-preview [book]="book"></app-product-preview>
     </li>
 </ul>
-
-
-
-

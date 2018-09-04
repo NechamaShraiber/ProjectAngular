@@ -11,7 +11,6 @@ export class RegisterComponent {
   obj: typeof Object = Object;
   registerForm: any;
   isAnonymous:Boolean;
-  // profilePicture:FormControl;
   constructor(private userService: UserService) {
     this.initFormgroup();
 
@@ -24,11 +23,9 @@ export class RegisterComponent {
       UserName: new FormControl("UserName", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
       Password: new FormControl("Password", this.createValidatorArr("password", 5, 10, /^[a-zA-Z0-9]*$/))
     };
-    // this.profilePicture=new FormControl();
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitRegister() {
-    console.log("on submit"+this.formGroup.value);
     this.userService.register(this.formGroup.value);
   }
 
