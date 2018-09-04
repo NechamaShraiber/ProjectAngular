@@ -19,6 +19,7 @@ subject=new Subject();
                 this.books.push(r["items"]); 
                
             });
+            
       return this.books;
     }
 getAllBooks(){
