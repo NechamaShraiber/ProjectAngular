@@ -47,7 +47,7 @@ import { BooksService } from './shared/services/books.service';
   ],
   providers: [
     UserService, 
-    BooksService,
+    BooksService
   ],
   bootstrap: [AppComponent]
 })

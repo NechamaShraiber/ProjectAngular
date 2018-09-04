@@ -28,6 +28,8 @@ export class RegisterComponent {
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitRegister() {
+    console.log(this.formGroup.value);
+    localStorage.setItem('user', JSON.stringify(this.formGroup.value));
     this.userService.addUser(this.formGroup.value);
   }
 
