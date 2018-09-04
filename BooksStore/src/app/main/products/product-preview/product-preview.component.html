@@ -1,10 +1,6 @@
-<!-- <img src={{book.picture}}>
-<label >{{book.title}}</label>
-<label >{{book.subTitle}}</label>
-<input type="button" value="view deatails" (click)="viewDeatails()">  -->
+
 <div class="bookCard">
   <img src={{book.volumeInfo.imageLinks}}>
-
   <div class='card-body'>
       <div class='card-text'>
         <h5>{{book.volumeInfo.title}}</h5>
@@ -17,16 +13,3 @@
 </div>
 
 
-<!--       
-<div class='card'>
-    <img src='{{book.volumeInfo.imageLinks}}?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260'>
-    <div class='card-body'>
-      <div class='card-text'>
-        <h3>{{book.volumeInfo.title}}</h3>
-        <p>
-            {{book.volumeInfo.subtitle}}
-        </p>
-      </div>
-      <input type="button" value="view deatails" (click)="viewDeatails()"  >
-    </div>
-  </div> -->

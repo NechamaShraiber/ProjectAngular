@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-/* body {
+ body {
   margin: 0;
   width: 100vw;
   overflow-x: hidden;
@@ -8,7 +8,7 @@
   font-size: 14.5px;
   line-height: 1.4em;
   color: #404646;
-} */
+} 
 
 * {
   box-sizing: border-box;
@@ -87,35 +87,7 @@
   background: linear-gradient(rgba(255, 255, 255, 0), white);
 }
 
-/* a {
-  color: #d07777;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-} */
 
-/* @media (max-width: 570px) {
-  .container {
-    grid-template: auto / 1fr;
-    padding: 1.0666666667em;
-  }
-
-  .bookCard {
-    flex: 1 1 auto;
-    display: flex;
-    background-color: #e8e2ba;;
-    box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
-  }
-  .bookCard img {
-    max-width: 45%;
-  }
-} */
-/* h5{
-    max-width: 100%;
-    max-height: 20%;
-    overflow:scroll;
-} */
 input {
     position: absolute;
     bottom: 1vh;

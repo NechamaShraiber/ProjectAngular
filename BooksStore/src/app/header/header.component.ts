@@ -25,8 +25,6 @@ export class HeaderComponent implements OnInit {
   readUserFromLocalStorage() {
     if (localStorage["user"]) {
       this.isAnonymous = true;
-      //this.userName=localStorage["user"]["UserName"];
-      //  this.userProfilePicture=localStorage["user"].profilePicture;
       this.user = localStorage["user"];
       this.user = JSON.parse(localStorage["user"]);
     }

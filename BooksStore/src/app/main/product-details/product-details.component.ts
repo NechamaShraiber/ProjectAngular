@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-product-details',
@@ -7,9 +8,22 @@ import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router:Router) { }
+  isAnonymous:boolean=false;
+  constructor(private route: ActivatedRoute, private router:Router , private userService:UserService) {
+    if (localStorage["user"])
+    this.isAnonymous = true;
+  this.userService.subAnonymous.subscribe(
+    {
+
+      next: (b: boolean) => 
+        this.isAnonymous = b
+ 
+    }
+  );
+   }
   book: any;
-  s: any;
+
+  
   ngOnInit() {
     //console.log(this.route.params["book"]);
     this.route.params.forEach(p => {
@@ -31,21 +45,3 @@ this.book=p;
     return (list) ? JSON.parse(list) : [];
 }
 }
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-function clearAllData() {
-    localStorage.clear();
-    showCurrentList();
-}
-*/
