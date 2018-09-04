@@ -15,15 +15,6 @@ export class UserService {
     u: User;
     subAnonymous = new Subject();
     constructor(private http: HttpClient, private router: Router) {
-
-        // this.u = new User();
-
-        // this.u.FirstName = "Dan";
-        // this.u.LastName = "Rom";
-        // this.u.password = "12345"
-        // this.u.UserName = "DanRom";
-        // this.u.profilePicture = "../../assets/Images/user1.jpg";
-        // this.usersList.push(this.u);
     }
 
     register(user: User) {
