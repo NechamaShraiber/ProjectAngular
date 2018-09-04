@@ -7,6 +7,16 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['./account.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
+<<<<<<< HEAD
+export class AccountComponent implements OnInit {
+ isAnonymous:Boolean;
+  constructor() {
+    this.isAnonymous=localStorage["user"]?true:false;
+  
+  }
+  ngOnInit() {
+    this.isAnonymous=localStorage["user"]?true:false;
+=======
 export class AccountComponent  {
 
  isAnonymous:Boolean=false;
@@ -27,6 +37,7 @@ export class AccountComponent  {
   {
 this.userService.deleteUserFromLocalStorage();
 
+>>>>>>> ab628d5252cfc94eeda1c4688cead41275532d9c
   }
   
 

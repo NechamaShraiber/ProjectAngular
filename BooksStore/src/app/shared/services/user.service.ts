@@ -8,7 +8,7 @@ import { Subject } from "../../../../node_modules/rxjs";
     providedIn: 'root'
 })
 export class UserService {
-    url: string = "";
+    url: string = " http://localhost:3500/api";
     usersList: User[] = [];
     u: User;
     subAnonymous = new Subject();
@@ -24,6 +24,35 @@ export class UserService {
         this.usersList.push(this.u);
     }
 
+<<<<<<< HEAD
+    addUser(user: User) {
+        user.profilePicture = "../../assets/Images/user1.jpg";
+        return this.http.post(this.url.concat('/register'), user).subscribe(res => {
+            localStorage.setItem('user', JSON.stringify(user));
+            this.subAnonymous.next(true);
+            alert("user added to list");
+        }
+        ), err => {
+            alert("user not added to list");
+        }
+    }
+
+    isExistingUser(loginner: User) {
+        //this.users = this.http.get(`http://localhost:3500/`).subscribe(res => { console.log(JSON.parse(JSON.stringify(res))); return res; });
+        // this.httpUsers.subscribe()
+
+        //**********
+        //this.http.post<any>(`http://localhost:3500/api/users`).subscribe(result => this.usersList = JSON.parse(JSON.stringify(result)));
+        //**********
+        return this.http.post("http://localhost:3500/api/login", loginner).subscribe(
+            res => () => { JSON.parse(JSON.stringify(res)); },
+            err => () => { JSON.parse(JSON.stringify(err)); }
+        )
+        // console.log(this.http.get(`http://localhost:3500/api/users`))
+        // console.log("this.users" + this.usersList);
+        // debugger
+        // return this.usersList.find(r => r.UserName == loginner.UserName && r.password == loginner.password)
+=======
     // addUser(user:user) {
     //     user.profilePicture = "../../assets/Images/user1.jpg";
     //     return this.http.post(this.url, user).subscribe(res => {
@@ -75,6 +104,7 @@ export class UserService {
          localStorage.removeItem('cart');
         this.subAnonymous.next(false);
 
+>>>>>>> ab628d5252cfc94eeda1c4688cead41275532d9c
     }
 }
 
