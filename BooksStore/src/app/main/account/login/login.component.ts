@@ -11,7 +11,7 @@ export class LoginComponent {
   obj: typeof Object = Object;
   registerForm: any;
   constructor(private userService: UserService) {
-    localStorage.removeItem('user');
+   
     let formGroupConfig = {
       UserName: new FormControl("UserName", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
       Password: new FormControl("Password", this.createValidatorArr("password", 5, 10, /^[a-zA-Z0-9]*$/))
@@ -19,7 +19,6 @@ export class LoginComponent {
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitLogin() {
-    console.log(this.formGroup.value);
     if (this.userService.isExistingUser(this.formGroup.value)) {
       alert("the person is ok")
     }

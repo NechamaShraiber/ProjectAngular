@@ -9,7 +9,7 @@ export class UserService {
     url: string = "";
     users: User[] = [];
     u: User;
-    subAnonymous= new Subject();
+    subAnonymous = new Subject();
     constructor(private http: HttpClient) {
 
         this.u = new User();
@@ -25,8 +25,9 @@ export class UserService {
 
 
     addUser(user) {
+        //לעדכן בserver
         user.profilePicture = "../../assets/Images/user1.jpg";
-        localStorage.setItem('user', JSON.stringify(user));
+        this.addUserToLocalStorage(user);
         this.users.push(user);
 
         // return this.http.post(this.url, user).subscribe(res => {
@@ -34,12 +35,27 @@ export class UserService {
         console.log(this.users);
         this.subAnonymous.next(true);
     }
+    addUserToLocalStorage(user) {
+        localStorage.setItem('user', JSON.stringify(user));
+    }
     // ), err => {
     //     console.log("user not added to list")
     // }
     //   }
     isExistingUser(loginer) {
-        return this.users.find(r => r.UserName == loginer.UserName && r.password == loginer.Password)
+        //לעדכן בserver
+        let user = new User();
+        user = this.users.find(r => r.UserName == loginer.UserName && r.password == loginer.Password);
+        this.addUserToLocalStorage(user);
+        this.subAnonymous.next(true);
+        return user ? true : false;
+    }
+    deleteUserFromLocalStorage()
+    {
+        localStorage.removeItem('user');
+         localStorage.removeItem('cart');
+        this.subAnonymous.next(false);
+
     }
 }
 

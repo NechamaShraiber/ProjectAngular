@@ -1,16 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class AccountComponent implements OnInit {
- isAnonymous:Boolean;
-  constructor() { 
-
+ isAnonymous:Boolean=false;
+  constructor(private userService:UserService) { 
+   if(localStorage["user"])
+     this.isAnonymous=true;
+    console.log(this.isAnonymous);
+ this.userService.subAnonymous.subscribe(
+    {
+      
+      next: (b:boolean)=> {this.isAnonymous =b;
+     }
+    }
+  );
   }
-
+ 
+  deleteUserFromLocalStorage()
+  {
+this.userService.deleteUserFromLocalStorage();
+  }
   ngOnInit() {
   }
 

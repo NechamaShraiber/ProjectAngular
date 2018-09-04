@@ -7,19 +7,17 @@ import { HomeComponent } from './main/home/home.component';
 import { RegisterComponent } from './main/account/register/register.component';
 import { LoginComponent } from './main/account/login/login.component';
 import { ProductDetailsComponent } from './main/product-details/product-details.component';
-import { ProductPreviewComponent } from './main/products/product-preview/product-preview.component';
-
-//  import { AuthGuard } from './shared/auth.guard';//vhjhvjvj
+import { CanActivateIfNotLogin, CanActivateIfLogin } from './shared/auth.guard';
+  
 const headerRoutes: Routes = [
-    //  { path: 'AuthRout/home', component: AccountComponent, canActivate: [AuthGuard] },
     { path: 'BooksStore/home', component: HomeComponent, },
     { path: 'BooksStore', redirectTo: 'BooksStore/home' },
-    { path: 'BooksStore/cart', component: CartComponent },
+    { path: 'BooksStore/cart', component: CartComponent , canActivate: [CanActivateIfLogin] },
     { path: 'BooksStore/products', component: ProductsComponent },
     {
         path: 'BooksStore/account', component: AccountComponent, children: [
-            { path: 'register', component: RegisterComponent },
-            { path: 'login', component: LoginComponent },
+            { path: 'register', component: RegisterComponent , canActivate: [CanActivateIfNotLogin] },
+            { path: 'login', component: LoginComponent ,canActivate: [CanActivateIfNotLogin]},
              {path:'logout',component:LoginComponent}
 
         ]
