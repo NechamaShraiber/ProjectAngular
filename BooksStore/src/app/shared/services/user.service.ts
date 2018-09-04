@@ -48,12 +48,13 @@ try(){
                 console.log(loginner);
                 this.addUserToLocalStorage(loginner);
                 this.subAnonymous.next(true);
-                this.router.navigate(["/home"]);
+                console.log("go to home");
+                this.router.navigate(["BooksStore/account/home"]);
             },
             err => {
                 console.log(loginner);
-                JSON.parse(JSON.stringify(err));
-                this.router.navigate(["/account/register"]);
+                console.log("go to register");
+                this.router.navigate(["BooksStore/account/register"]);
             }
         )
     }

@@ -9,6 +9,14 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class ProductDetailsComponent implements OnInit {
   isAnonymous:boolean=false;
+<<<<<<< HEAD
+  constructor(private route: ActivatedRoute, private router: Router,private userService:UserService) { 
+    if(localStorage["user"]){
+      this.isAnonymous=true;
+    }
+  }
+  book: any;
+=======
   constructor(private route: ActivatedRoute, private router:Router , private userService:UserService) {
     if (localStorage["user"])
     this.isAnonymous = true;
@@ -24,10 +32,10 @@ export class ProductDetailsComponent implements OnInit {
   book: any;
 
   
+>>>>>>> 9bd15b9ff864ef39118d4e494e232fa8a9b64827
   ngOnInit() {
-    //console.log(this.route.params["book"]);
     this.route.params.forEach(p => {
-this.book=p;
+      this.book = p;
     })
   }
   addCart() {
@@ -35,13 +43,17 @@ this.book=p;
     currentList.push(this.book);
     localStorage.setItem("cart", JSON.stringify(currentList));
     this.returnProduct();
-    
+
   }
   returnProduct() {
     this.router.navigate(['BooksStore/products']);
   }
-   getCurrentList() {
-    let list = localStorage.getItem("cart");  
+  getCurrentList() {
+    let list = localStorage.getItem("cart");
     return (list) ? JSON.parse(list) : [];
+  }
 }
+<<<<<<< HEAD
+=======
 }
+>>>>>>> 9bd15b9ff864ef39118d4e494e232fa8a9b64827
