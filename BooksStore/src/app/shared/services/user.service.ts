@@ -24,6 +24,7 @@ export class UserService {
         this.usersList.push(this.u);
     }
 
+<<<<<<< HEAD
     addUser(user: User) {
         user.profilePicture = "../../assets/Images/user1.jpg";
         return this.http.post(this.url.concat('/register'), user).subscribe(res => {
@@ -51,6 +52,59 @@ export class UserService {
         // console.log("this.users" + this.usersList);
         // debugger
         // return this.usersList.find(r => r.UserName == loginner.UserName && r.password == loginner.password)
+=======
+    // addUser(user:user) {
+    //     user.profilePicture = "../../assets/Images/user1.jpg";
+    //     return this.http.post(this.url, user).subscribe(res => {
+    //       alert("user added to list")
+    //     }
+    //     ), err => {
+    //       alert("user not added to list")
+    //     }
+    //   }
+
+    // addUser(user: User) {
+    //     user.profilePicture = "../../assets/Images/user1.jpg";
+    //     this.usersList.push(user);
+
+    //     // return this.http.post(this.url, user).subscribe(res => {
+    //     console.log("user added to list");
+    //     console.log(this.usersList);
+
+
+    addUser(user) {
+        //לעדכן בserver
+        user.profilePicture = "../../assets/Images/user1.jpg";
+        this.addUserToLocalStorage(user);
+        this.usersList.push(user);
+
+        // return this.http.post(this.url, user).subscribe(res => {
+        console.log("user added to list");
+        console.log(this.usersList);
+        this.subAnonymous.next(true);
+    }
+    addUserToLocalStorage(user) {
+        localStorage.setItem('user', JSON.stringify(user));
+    }
+    // ), err => {
+    //     console.log("user not added to list")
+    // }
+    //   }
+    isExistingUser(loginer) {
+        //לעדכן בserver
+        let user = new User();
+        user = this.usersList.find(r => r.UserName == loginer.UserName && r.password == loginer.Password);
+        this.addUserToLocalStorage(user);
+        this.subAnonymous.next(true);
+        return user ? true : false;
+    }
+    deleteUserFromLocalStorage()
+    {
+        localStorage.removeItem('user');
+         localStorage.removeItem('cart');
+        this.subAnonymous.next(false);
+
+>>>>>>> ab628d5252cfc94eeda1c4688cead41275532d9c
     }
 }
 

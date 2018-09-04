@@ -20,6 +20,7 @@ this.book=p;
     let currentList = this.getCurrentList();
     currentList.push(this.book);
     localStorage.setItem("cart", JSON.stringify(currentList));
+    this.returnProduct();
     
   }
   returnProduct() {

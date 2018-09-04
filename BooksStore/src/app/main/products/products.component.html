@@ -1,8 +1,10 @@
 <input type="text" (keyup)="onKeyUp($event)">
 <ul class="row">
     <li  *ngFor="let book of books[0]" class="productPreview col-md-2" >
-        <!-- <P> {{book.volumeInfo.title}}</P> -->
        <app-product-preview  [book]="book"></app-product-preview>
     </li>
 </ul>
-<!-- //this.books[0]["volumeInfo"]["title"] -->
+
+
+
+

@@ -1,9 +1,6 @@
-<p>
-  account works!
-</p>
 <nav>
     <a routerLink="login" routerLinkActive="active" *ngIf="!isAnonymous">log-in</a><br>
-    <a routerLink="register" routerLinkActive="active" *ngIf="!isAnonymous">register</a><br>
-    <a routerLink="logout" routerLinkActive="active" *ngIf="isAnonymous">logout</a><br>
+    <a routerLink="register"  routerLinkActive="active" *ngIf="!isAnonymous" >register</a><br>
+    <a routerLink="logout" routerLinkActive="active" *ngIf="isAnonymous" (click)="deleteUserFromLocalStorage()">logout</a><br>
 </nav>
 <router-outlet></router-outlet>

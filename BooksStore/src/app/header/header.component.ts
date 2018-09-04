@@ -11,7 +11,17 @@ export class HeaderComponent implements OnInit {
  isAnonymous: boolean=false;
 user= new User();
   constructor(private userService:UserService) {
-    if (localStorage["user"]) {
+  this.readUserFromLocalStorage();
+  this.userService.subAnonymous.subscribe(
+    {
+      
+      next: (b:boolean)=> {this.isAnonymous =b;
+      this.readUserFromLocalStorage();}
+    }
+  );
+  }
+readUserFromLocalStorage(){
+   if (localStorage["user"]) {
       this.isAnonymous = true;
       //this.userName=localStorage["user"]["UserName"];
     //  this.userProfilePicture=localStorage["user"].profilePicture;
@@ -20,15 +30,10 @@ user= new User();
     }
    else {
      this.user.FirstName="guest";
+     this.user.LastName="";
      this.user.profilePicture="https://www.drupal.org/files/profile_default.jpg";
    }
-  this.userService.subAnonymous.subscribe(
-    {
-      next: (b:boolean)=> {this.isAnonymous =b}
-    }
-  );
-  }
-
+}
   ngOnInit() {
   }
 
