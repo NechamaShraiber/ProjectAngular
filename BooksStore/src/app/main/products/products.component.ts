@@ -7,24 +7,19 @@ import { UserService } from '../../shared/services/user.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent   {
 books:any[]=[];
   constructor(private bookService:BooksService, private userService:UserService) {
     this.books=this.bookService.getAllBooks();
-  
    }
 
-  ngOnInit() { 
-  
-  }
   onKeyUp(event) {
       
      this.books=this.bookService.getBooks(event.target.value);
   }
+  //delete
   f(){
     this.books[0].forEach(r=>{r.volumeInfo.imageLinks="../../../../assets/Images/StoreImg.jpg"})
   }
-  try(){
-    this.userService.try();
-  }
+  
 }

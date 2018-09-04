@@ -18,48 +18,36 @@ export class UserService {
        
 
     }
-try(){
-  this.u=new User();
-    this.u.FirstName="Dan";
-    this.u.LastName="Rom";
-    this.u.password="12345";
-    this.u.profilePicture="../../assets/Images/user1.jpg";
-    this.u.UserName="DanRom";
-   // this.usersList.push(this.u);
-   localStorage.setItem('user', JSON.stringify(this.u));
-}
+
+
+
     register(user: User) {
         user.profilePicture = "../../assets/Images/user1.jpg";
         return this.http.post(this.url.concat('/register'), user).subscribe(res => {
             this.addUserToLocalStorage(user);
-            this.subAnonymous.next(true);
-            alert("user added to list");
+        this.router.navigate(["BooksStore/account/home"]);
         }
         ), err => {
-            alert("user not added to list");
         }
     }
 
     login(loginner: User) {
-        console.log("service login");
         this.http.post("http://localhost:3500/api/login", loginner).subscribe(
             res => {
                 loginner = JSON.parse(JSON.stringify(res));
                 console.log(loginner);
                 this.addUserToLocalStorage(loginner);
-                this.subAnonymous.next(true);
-                console.log("go to home");
-                this.router.navigate(["BooksStore/account/home"]);
+        this.router.navigate(["BooksStore/account/home"]);
+                
             },
             err => {
-                console.log(loginner);
-                console.log("go to register");
                 this.router.navigate(["BooksStore/account/register"]);
             }
         )
     }
     addUserToLocalStorage(user) {
         localStorage.setItem('user', JSON.stringify(user));
+        this.subAnonymous.next(true);
     }
 
     deleteUserFromLocalStorage() {

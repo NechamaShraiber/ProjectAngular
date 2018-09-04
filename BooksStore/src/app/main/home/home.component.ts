@@ -6,7 +6,7 @@ import { Store } from '../../shared/models/store.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent   {
 store:Store;
   constructor() {
     this.store=new Store();
@@ -21,8 +21,4 @@ store:Store;
     this.store.picture="../../../assets/Images/StoreImg.jpg";
 
    }
-
-  ngOnInit() {
-  }
-
 }

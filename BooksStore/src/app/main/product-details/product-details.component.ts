@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '../../../../node_modules/@angular/router';
 import { UserService } from '../../shared/services/user.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -9,30 +10,23 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class ProductDetailsComponent implements OnInit {
   isAnonymous:boolean=false;
-  constructor(private route: ActivatedRoute, private router:Router , private userService:UserService) {
+  book: any;
+  constructor(private route: ActivatedRoute, private router:Router , private userService:UserService, private cartService:CartService) {
     if (localStorage["user"])
     this.isAnonymous = true;
    }
-  book: any;
-
-  
   ngOnInit() {
     this.route.params.forEach(p => {
       this.book = p;
     })
   }
-  addCart() {
-    let currentList = this.getCurrentList();
-    currentList.push(this.book);
-    localStorage.setItem("cart", JSON.stringify(currentList));
+  addBookToCart() {
+    this.cartService.addBookToCartList(this.book)
     this.returnProduct();
 
   }
   returnProduct() {
     this.router.navigate(['BooksStore/products']);
   }
-  getCurrentList() {
-    let list = localStorage.getItem("cart");
-    return (list) ? JSON.parse(list) : [];
-  }
+  
 }

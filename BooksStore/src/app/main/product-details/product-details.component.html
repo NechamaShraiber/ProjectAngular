@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-<p>
-  product-details works!
-</p>
-<img src={{book.imageLinks}}>
-<div>
- <P>deatails:</P>
-<p >{{book.title}}</p>
-<p >{{book.subtitle}}</p>
-<p>{{book.authors}}</p>
-<p >{{book.publishedDate}}</p>
-<p>{{book.language}}</p>
-<p>{{book.pageCount}}</p>
-<p>{{book.publisher}}</p>
-</div>
-<input type="button" value="add cart" (click)="addCart()" *ngIf="isAnonymous">
-<input type="button" value="go back" (click)="returnProduct()">
-=======
->>>>>>> 9bd15b9ff864ef39118d4e494e232fa8a9b64827
-
-
-
-
 <div class="bookCard">
   <img src={{book.imageLinks}}>
 
@@ -37,7 +14,7 @@
       </div>
     </div>
     <div class="btnPlace">
-    <input type="button"  value="add cart" (click)="addCart()" class="btn" *ngIf="isAnonymous">
+    <input type="button"  value="add cart" (click)="addBookToCart()" class="btn" *ngIf="isAnonymous">
     <input type="button" value="go back" (click)="returnProduct()" class="btn">
 </div>
   </div>

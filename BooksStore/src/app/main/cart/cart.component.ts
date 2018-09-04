@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../shared/services/books.service';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,26 +9,21 @@ import { BooksService } from '../../shared/services/books.service';
 })
 export class CartComponent implements OnInit {
 cartBooks:any[];
-  constructor(private bookService:BooksService) {
+  constructor(private bookService:BooksService, private cartService:CartService) {
     this.bookService.subject.subscribe(
       {
         next: (book:any) => this.removeBook(book)
       }
     );
    }
-
   ngOnInit() {
-   this.cartBooks=this.getCurrentList();
+   this.cartBooks=this.cartService.getCartList();
   }
-  getCurrentList() {
-    let list = localStorage.getItem("cart");  
-    return (list) ? JSON.parse(list) : [];
-}
+
 removeBook(book:any)
 {
-  let index=this.cartBooks.indexOf(book);
-  this.cartBooks.splice(index,1);
-  localStorage.setItem("cart", JSON.stringify(this.cartBooks));
+  this.cartService.removeBookFromCart(book);
+ 
 }
 
 }

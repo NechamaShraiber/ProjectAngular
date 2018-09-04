@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '../../../../../node_modules/@angular/router';
 import { query } from '../../../../../node_modules/@angular/core/src/render3/query';
 
@@ -7,20 +7,15 @@ import { query } from '../../../../../node_modules/@angular/core/src/render3/que
   templateUrl: './product-preview.component.html',
   styleUrls: ['./product-preview.component.css']
 })
-export class ProductPreviewComponent implements OnInit {
+export class ProductPreviewComponent   {
 
  @Input() book:any;
   constructor(private router:Router) {
     
    }
 
-  ngOnInit() {
-   
-  }
   viewDeatails()
   {
-  
-
  this.router.navigate(['BooksStore/productsDeatails', this.book.volumeInfo]);
    
   }

@@ -19,9 +19,7 @@ export class LoginComponent {
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitLogin() {
-    console.log("submitLogin");
     this.userService.login(this.formGroup.value);
-    
   }
   createValidatorArr(cntName: string, min: number, max: number, reg: RegExp): Array<ValidatorFn> {
     return [
