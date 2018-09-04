@@ -9,30 +9,12 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class ProductDetailsComponent implements OnInit {
   isAnonymous:boolean=false;
-<<<<<<< HEAD
   constructor(private route: ActivatedRoute, private router: Router,private userService:UserService) { 
     if(localStorage["user"]){
       this.isAnonymous=true;
     }
   }
   book: any;
-=======
-  constructor(private route: ActivatedRoute, private router:Router , private userService:UserService) {
-    if (localStorage["user"])
-    this.isAnonymous = true;
-  this.userService.subAnonymous.subscribe(
-    {
-
-      next: (b: boolean) => 
-        this.isAnonymous = b
- 
-    }
-  );
-   }
-  book: any;
-
-  
->>>>>>> 9bd15b9ff864ef39118d4e494e232fa8a9b64827
   ngOnInit() {
     this.route.params.forEach(p => {
       this.book = p;
@@ -53,7 +35,3 @@ export class ProductDetailsComponent implements OnInit {
     return (list) ? JSON.parse(list) : [];
   }
 }
-<<<<<<< HEAD
-=======
-}
->>>>>>> 9bd15b9ff864ef39118d4e494e232fa8a9b64827
