@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { User } from "../models/user.model";
+import { Subject } from "../../../../node_modules/rxjs";
 @Injectable({
     providedIn: 'root'
 })
@@ -8,6 +9,7 @@ export class UserService {
     url: string = "";
     users: User[] = [];
     u: User;
+    subAnonymous= new Subject();
     constructor(private http: HttpClient) {
 
         this.u = new User();
@@ -23,12 +25,14 @@ export class UserService {
 
 
     addUser(user) {
-        user.profilePicture = "../../assets/Images/user1.jpg"
+        user.profilePicture = "../../assets/Images/user1.jpg";
+        localStorage.setItem('user', JSON.stringify(user));
         this.users.push(user);
 
         // return this.http.post(this.url, user).subscribe(res => {
         console.log("user added to list");
         console.log(this.users);
+        this.subAnonymous.next(true);
     }
     // ), err => {
     //     console.log("user not added to list")

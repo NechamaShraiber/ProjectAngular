@@ -19,7 +19,6 @@ import { ProductPreviewComponent } from './main/products/product-preview/product
 import { CartProduactComponent } from './main/cart/cart-produact/cart-produact.component';
 
 import { BooksService } from './shared/services/books.service';
-import { AuthenticationService } from './shared/services/authenticating.service';
 
 
 @NgModule({
@@ -49,7 +48,6 @@ import { AuthenticationService } from './shared/services/authenticating.service'
   providers: [
     UserService, 
     BooksService,
-    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

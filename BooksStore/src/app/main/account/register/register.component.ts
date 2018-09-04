@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, ValidatorFn } from '@angular/forms';
 import { UserService } from '../../../shared/services/user.service';
-import { AuthenticationService } from '../../../shared/services/authenticating.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,26 +12,22 @@ export class RegisterComponent {
   registerForm: any;
   isAnonymous:Boolean;
   // profilePicture:FormControl;
-  constructor(private userService: UserService, private authenticationService: AuthenticationService) {
+  constructor(private userService: UserService) {
     this.initFormgroup();
-    this.isAnonymous=this.authenticationService.isAnonymous;
 
   }
 
   initFormgroup() {
     let formGroupConfig = {
-      FirstName: new FormControl("First Name", this.createValidatorArr("FirstName", 2, 15, /^[a-zA-Z]*$/)),
-      LastName: new FormControl("Last Name", this.createValidatorArr("LastName", 2, 15, /^[a-zA-Z]*$/)),
-      UserName: new FormControl("User Name", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
+      FirstName: new FormControl("FirstName", this.createValidatorArr("FirstName", 2, 15, /^[a-zA-Z]*$/)),
+      LastName: new FormControl("LastName", this.createValidatorArr("LastName", 2, 15, /^[a-zA-Z]*$/)),
+      UserName: new FormControl("UserName", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
       Password: new FormControl("Password", this.createValidatorArr("password", 5, 10, /^[a-zA-Z0-9]*$/))
     };
     // this.profilePicture=new FormControl();
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitRegister() {
-    console.log(this.formGroup.value);
-    localStorage.setItem('user', JSON.stringify(this.formGroup.value));
-    this.authenticationService.isAnonymousSubject.next(true);
     this.userService.addUser(this.formGroup.value);
   }
 

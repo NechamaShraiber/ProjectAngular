@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../shared/services/authenticating.service';
 
 @Component({
   selector: 'app-account',
@@ -8,13 +7,8 @@ import { AuthenticationService } from '../../shared/services/authenticating.serv
 })
 export class AccountComponent implements OnInit {
  isAnonymous:Boolean;
-  constructor(private authenticationService:AuthenticationService) { 
+  constructor() { 
 
-    this.isAnonymous=this.authenticationService.isAnonymous;
-
-    this.authenticationService.isAnonymousSubject.subscribe({
-      next:(isAno:boolean)=>{this.authenticationService.isAnonymous=isAno;console.log(this.authenticationService.isAnonymous)}
-    })
   }
 
   ngOnInit() {
