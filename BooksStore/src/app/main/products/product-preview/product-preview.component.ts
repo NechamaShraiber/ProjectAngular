@@ -10,9 +10,12 @@ import { query } from '../../../../../node_modules/@angular/core/src/render3/que
 export class ProductPreviewComponent implements OnInit {
 
  @Input() book:any;
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+    
+   }
 
   ngOnInit() {
+   
   }
   viewDeatails()
   {

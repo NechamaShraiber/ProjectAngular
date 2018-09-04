@@ -1,21 +1,24 @@
+<!-- <img src={{book.picture}}>
+<label >{{book.title}}</label>
+<label >{{book.subTitle}}</label>
+<input type="button" value="view deatails" (click)="viewDeatails()">  -->
+<div class="bookCard">
+  <img src={{book.volumeInfo.imageLinks}}>
 
-<P>
-  title:
- {{book.volumeInfo.title}}
-</P>
-<P *ngIf="book.volumeInfo.subtitle">
-  subtitle:
- {{book.volumeInfo.subtitle}}
-</P>
-<div >
-<input type="button" value="view deatails" (click)="viewDeatails()"  >
-
-</div> 
+  <div class='card-body'>
+      <div class='card-text'>
+        <h5>{{book.volumeInfo.title}}</h5>
+        <p>
+            {{book.volumeInfo.subtitle}}
+        </p>
+      </div>
+      <input type="button" value="view deatails" (click)="viewDeatails()" class="btn"  >
+    </div>
+</div>
 
 
-
-   
-<!-- <div class='card'>
+<!--       
+<div class='card'>
     <img src='{{book.volumeInfo.imageLinks}}?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260'>
     <div class='card-body'>
       <div class='card-text'>
@@ -26,5 +29,4 @@
       </div>
       <input type="button" value="view deatails" (click)="viewDeatails()"  >
     </div>
-  </div>  -->
-  
+  </div> -->
