@@ -17,8 +17,7 @@ store:Store;
       street:"rabi Akiva",
       numHouse:45
     }
- 
-    this.store.picture="../../../assets/Images/StoreImg.jpg";
+    this.store.picture="../../../assets/Images/BooksStore.jpg";
 
    }
 
