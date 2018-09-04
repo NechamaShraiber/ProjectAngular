@@ -23,5 +23,6 @@ export class CartProduactComponent implements OnInit {
   getCurrentList() {
     let list = localStorage.getItem("cart"); 
     return (list) ? JSON.parse(list) : [];
+  
 }
 }

@@ -1,3 +1,6 @@
-.cartProduact{
-    border: 5px solid black;
+li{
+    list-style-type: none;
+    margin-bottom: 1%;
+    padding: 0;
+    padding-top: 0.5vh;
 }

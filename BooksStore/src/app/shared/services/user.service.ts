@@ -15,8 +15,19 @@ export class UserService {
     u: User;
     subAnonymous = new Subject();
     constructor(private http: HttpClient, private router: Router) {
-    }
+       
 
+    }
+try(){
+  this.u=new User();
+    this.u.FirstName="Dan";
+    this.u.LastName="Rom";
+    this.u.password="12345";
+    this.u.profilePicture="../../assets/Images/user1.jpg";
+    this.u.UserName="DanRom";
+   // this.usersList.push(this.u);
+   localStorage.setItem('user', JSON.stringify(this.u));
+}
     register(user: User) {
         user.profilePicture = "../../assets/Images/user1.jpg";
         return this.http.post(this.url.concat('/register'), user).subscribe(res => {
