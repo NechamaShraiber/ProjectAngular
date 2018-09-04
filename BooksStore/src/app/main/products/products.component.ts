@@ -8,26 +8,14 @@ import { BooksService } from '../../shared/services/books.service';
 })
 export class ProductsComponent implements OnInit {
 books:any[]=[];
-  constructor(private bookService:BooksService) { }
+  constructor(private bookService:BooksService) {
+    this.books=this.bookService.getAllBooks();
+   }
 
   ngOnInit() {
   }
   onKeyUp(event) {
      this.books=this.bookService.getBooks(event.target.value);
-     setTimeout(()=>{
-       console.log( this.books)
-      console.log(this.books[0][0]["volumeInfo"]["title"]);
-    },1000);
- 
-    // this.vvv();
   }
-  // vvv()
-  // {
-  //   setTimeout(()=>
-  //   console.log(this.books)
-  //   ,3000
-  //   )
-    
-    
-  // }
+  
 }

@@ -1,7 +1,15 @@
-<p>
-  cart-produact works!
-</p>
-<img src={{book.picture}}>
-<label >{{book.title}}</label>
-<label >{{book.subTitle}}</label>
-<input type="button" value="view deatails" (click)="removeFromCart()">
+
+
+<img src={{book.imageLinks}} >
+
+<P>
+  title:
+ {{book.title}}
+</P>
+<P *ngIf="book.subtitle">
+  subtitle:
+ {{book.subtitle}}
+</P>
+<div>
+    <input type="button" value="remove from cart" (click)="removeFromCart()"> 
+</div>

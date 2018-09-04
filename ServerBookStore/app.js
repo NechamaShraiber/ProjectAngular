@@ -48,11 +48,17 @@ app.post("/api/login", (req, res) => {
     else res.status(400).send();
 })
 app.post("/api/register", (req, res) => {
+    console.log(req.body);
     if (isValidRegister(req.body)) {
         let currentList = require("./users.json");
         currentList.push(req.body);
         fs.writeFileSync("users.json", JSON.stringify(currentList));
+        console.log("good!!!");
         res.status(201).send(JSON.stringify(currentList));
+    }
+    else{
+        console.log("bad...");
+        res.status(400);
     }
 });
 
