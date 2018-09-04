@@ -12,16 +12,16 @@ export class RegisterComponent {
   registerForm: any;
   isAnonymous:Boolean;
   // profilePicture:FormControl;
-  constructor(private userService: UserService ) {
+  constructor(private userService: UserService) {
     this.initFormgroup();
 
   }
 
   initFormgroup() {
     let formGroupConfig = {
-      FirstName: new FormControl("First Name", this.createValidatorArr("FirstName", 2, 15, /^[a-zA-Z]*$/)),
-      LastName: new FormControl("Last Name", this.createValidatorArr("LastName", 2, 15, /^[a-zA-Z]*$/)),
-      UserName: new FormControl("User Name", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
+      FirstName: new FormControl("FirstName", this.createValidatorArr("FirstName", 2, 15, /^[a-zA-Z]*$/)),
+      LastName: new FormControl("LastName", this.createValidatorArr("LastName", 2, 15, /^[a-zA-Z]*$/)),
+      UserName: new FormControl("UserName", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
       Password: new FormControl("Password", this.createValidatorArr("password", 5, 10, /^[a-zA-Z0-9]*$/))
     };
     // this.profilePicture=new FormControl();

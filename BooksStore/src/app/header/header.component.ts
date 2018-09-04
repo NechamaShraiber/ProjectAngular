@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/models/user.model';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,23 +8,31 @@ import { User } from '../shared/models/user.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
- // userName: string = "guest";
-//  userProfilePicture: string = "https://www.drupal.org/files/profile_default.jpg";
- isAnonymous: boolean;
+ isAnonymous: boolean=false;
 user= new User();
-  constructor() {
+  constructor(private userService:UserService) {
     if (localStorage["user"]) {
       this.isAnonymous = true;
-      this.userName=localStorage["user"]["UserName"];
-      this.userProfilePicture=localStorage["user"].profilePicture;
+      //this.userName=localStorage["user"]["UserName"];
+    //  this.userProfilePicture=localStorage["user"].profilePicture;
       this.user=localStorage["user"];
+      this.user =JSON.parse(localStorage["user"])   ;
     }
-    else this.isAnonymous = false;
-  
+   else {
+     this.user.FirstName="guest";
+     this.user.profilePicture="https://www.drupal.org/files/profile_default.jpg";
+   }
+  this.userService.subAnonymous.subscribe(
+    {
+      next: (b:boolean)=> {this.isAnonymous =b}
+    }
+  );
   }
 
   ngOnInit() {
   }
 
 
+  
+  
 }
