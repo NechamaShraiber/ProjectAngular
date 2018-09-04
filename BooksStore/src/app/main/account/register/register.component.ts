@@ -29,7 +29,7 @@ export class RegisterComponent {
   }
   submitRegister() {
     console.log("on submit"+this.formGroup.value);
-    this.userService.addUser(this.formGroup.value);
+    this.userService.register(this.formGroup.value);
   }
 
   createValidatorArr(cntName: string, min: number, max: number, reg: RegExp): Array<ValidatorFn> {

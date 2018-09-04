@@ -11,7 +11,7 @@ export class LoginComponent {
   obj: typeof Object = Object;
   registerForm: any;
   constructor(private userService: UserService) {
-   
+
     let formGroupConfig = {
       UserName: new FormControl("UserName", this.createValidatorArr("UserName", 4, 15, /^[a-zA-Z]*$/)),
       Password: new FormControl("Password", this.createValidatorArr("password", 5, 10, /^[a-zA-Z0-9]*$/))
@@ -19,17 +19,9 @@ export class LoginComponent {
     this.formGroup = new FormGroup(formGroupConfig);
   }
   submitLogin() {
-<<<<<<< HEAD
-    console.log("first submit login "+this.formGroup.value);
-    let loginer=this.userService.isExistingUser(this.formGroup.value);
-    console.log(loginer);
-    if (loginer) {
-=======
-    if (this.userService.isExistingUser(this.formGroup.value)) {
->>>>>>> ab628d5252cfc94eeda1c4688cead41275532d9c
-      alert("the person is ok")
-    }
-    else alert("person is ok");
+    console.log("submitLogin");
+    this.userService.login(this.formGroup.value);
+    
   }
   createValidatorArr(cntName: string, min: number, max: number, reg: RegExp): Array<ValidatorFn> {
     return [

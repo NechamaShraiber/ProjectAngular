@@ -8,36 +8,38 @@ import { UserService } from '../shared/services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
- isAnonymous: boolean=false;
-user= new User();
-  constructor(private userService:UserService) {
-  this.readUserFromLocalStorage();
-  this.userService.subAnonymous.subscribe(
-    {
-      
-      next: (b:boolean)=> {this.isAnonymous =b;
-      this.readUserFromLocalStorage();}
-    }
-  );
+  isAnonymous: boolean = false;
+  user = new User();
+  constructor(private userService: UserService) {
+    this.readUserFromLocalStorage();
+    this.userService.subAnonymous.subscribe(
+      {
+
+        next: (b: boolean) => {
+          this.isAnonymous = b;
+          this.readUserFromLocalStorage();
+        }
+      }
+    );
   }
-readUserFromLocalStorage(){
-   if (localStorage["user"]) {
+  readUserFromLocalStorage() {
+    if (localStorage["user"]) {
       this.isAnonymous = true;
       //this.userName=localStorage["user"]["UserName"];
-    //  this.userProfilePicture=localStorage["user"].profilePicture;
-      this.user=localStorage["user"];
-      this.user =JSON.parse(localStorage["user"])   ;
+      //  this.userProfilePicture=localStorage["user"].profilePicture;
+      this.user = localStorage["user"];
+      this.user = JSON.parse(localStorage["user"]);
     }
-   else {
-     this.user.FirstName="guest";
-     this.user.LastName="";
-     this.user.profilePicture="https://www.drupal.org/files/profile_default.jpg";
-   }
-}
+    else {
+      this.user.FirstName = "guest";
+      this.user.LastName = "";
+      this.user.profilePicture = "https://www.drupal.org/files/profile_default.jpg";
+    }
+  }
   ngOnInit() {
   }
 
 
-  
-  
+
+
 }
