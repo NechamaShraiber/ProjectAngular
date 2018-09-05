@@ -1,12 +1,12 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { CartComponent } from './main/cart/cart.component';
-import { ProductsComponent } from './main/products/products.component';
-import { AccountComponent } from './main/account/account.component';
-import { HomeComponent } from './main/home/home.component';
-import { RegisterComponent } from './main/account/register/register.component';
-import { LoginComponent } from './main/account/login/login.component';
-import { ProductDetailsComponent } from './main/product-details/product-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductsComponent } from './components/products/products.component';
+import { AccountComponent } from './components/account/account.component';
+import { HomeComponent } from './components/home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CanActivateIfNotLogin, CanActivateIfLogin } from './shared/auth.guard';
   
 const headerRoutes: Routes = [

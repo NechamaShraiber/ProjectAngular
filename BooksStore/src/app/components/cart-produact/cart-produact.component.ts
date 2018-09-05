@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '../../../../../node_modules/@angular/router';
-import { BooksService } from '../../../shared/services/books.service';
+import { Router } from '../../../../node_modules/@angular/router';
+import { BooksService } from '../../shared/services/books.service';
 
 @Component({
   selector: 'app-cart-produact',

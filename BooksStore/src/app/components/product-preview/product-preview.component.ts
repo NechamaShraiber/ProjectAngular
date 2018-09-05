@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '../../../../../node_modules/@angular/router';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-product-preview',

@@ -11,7 +11,6 @@ export class CartService {
     }
 
     removeBookFromCart(book: any) {
-        alert("dasd");
         console.log(book);
         let index = this.cartList.indexOf(book);    console.log(index);
         this.cartList.splice(index, 1);
