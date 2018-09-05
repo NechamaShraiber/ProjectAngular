@@ -30,8 +30,10 @@
   margin: 0;
   height: 15em;
   display: flex;
-  background-color:white;
+  background-color:#e8e8e8;
   box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+  margin: 0.5vw;
+  border-radius: 1vh;
 }
 .bookCard img {
   height: 100%;
@@ -40,6 +42,8 @@
   -o-object-fit: cover;
      object-fit: cover;
   flex: 1 1 auto;
+  border-radius: 1vh 0 0 1vh;
+  border-right: 1px solid;
 }
 
 .bookCard-body {
@@ -90,8 +94,8 @@
 
 input {
     position: absolute;
-    bottom: 1vh;
-    background-color: #a0dc98;
+    bottom: 1.5vh;
+    background-color: #76e2e2;
 }
 h5, p{
   height: 7vh;
@@ -101,3 +105,5 @@ h5, p{
 body{
     height: 100vh;
 }
+
+

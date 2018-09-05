@@ -95,12 +95,12 @@
 
 .btnPlace {
     position: absolute;
-    bottom: 1vh;
-    width: 10vw;
+    bottom: 5vh;
+
    
 }
 input{
-     background-color: #a0dc98;
+     background-color: #76e2e2;
      margin: 0.2vh;
 }
 /* h5, p{

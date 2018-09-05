@@ -4,9 +4,19 @@ li{
     padding: 0;
     padding-top: 0.5vh;
 }
+<<<<<<< HEAD
 .search-icon {
     position: relative;
     float: right;
     top: -24px;
     left: -10px;
   }
+=======
+h5{
+    text-align: center
+}
+input{
+    margin: auto;
+    display: block;
+}
+>>>>>>> 27e3e4bfa72ef0a7cdea66be51ff014fa7c811e3
