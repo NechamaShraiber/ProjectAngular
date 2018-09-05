@@ -18,7 +18,7 @@ export class ProductsComponent {
   }
   //delete- temporary function thatshows an image for each book
   tempFunc() {
-    this.books[0].forEach(r => { r.volumeInfo.imageLinks = "../../../../assets/Images/StoreImg.jpg" })
+    this.books[0].forEach(r => { r.volumeInfo.imageLinks = "../../../../assets/Images/SingleBook.jpg" })
   }
 
 }
