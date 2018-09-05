@@ -12,9 +12,10 @@
         <p>{{book.publisher}}</p>
       </div>
     </div>
-  </div>
-  <div class="btnPlace">
+    <div class="btnPlace">
     <input type="button" value="add cart" (click)="addBookToCart()" class="btn" *ngIf="isAnonymous">
     <input type="button" value="go back" (click)="returnProduct()" class="btn">
   </div>
+  </div>
+  
 </div>

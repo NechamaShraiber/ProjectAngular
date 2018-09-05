@@ -94,8 +94,8 @@
 
 input {
     position: absolute;
-    bottom: 1vh;
-    background-color: #a0dc98;
+    bottom: 1.5vh;
+    background-color: #76e2e2;
 }
 h5, p{
   height: 7vh;

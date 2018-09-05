@@ -4,3 +4,10 @@ li{
     padding: 0;
     padding-top: 0.5vh;
 }
+h5{
+    text-align: center
+}
+input{
+    margin: auto;
+    display: block;
+}
