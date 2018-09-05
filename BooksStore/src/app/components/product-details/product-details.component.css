@@ -24,13 +24,16 @@
   align-content: start;
   grid-gap: 1.6em;
   grid-template: auto/repeat(auto-fill, minmax(27em, 27em));
+
 }
 
 .bookCard {
   margin: 0;
   display: flex;
-  background-color:white;
-  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+  background-color:#e8e8e8;
+  /* box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);  */
+  box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 5px 0px;
+   margin: 0.5vw;
 }
 .bookCard img {
   height: 100%;

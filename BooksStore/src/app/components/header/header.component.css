@@ -1,11 +1,14 @@
 img{
-    width: 13%;
+    width: 8vw;
+    height: 8vh;
+    margin: auto;
+    display: block;
 }
 p{
     color: white;
 }
-@media (min-width: 1200px) {
-    .container {
-    max-width: 85%;
+.ulPic{
+    margin-left: 40vh;
+    margin-top: 1vh;
 }
-}
+
