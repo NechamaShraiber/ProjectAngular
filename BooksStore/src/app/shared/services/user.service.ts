@@ -17,8 +17,6 @@ export class UserService {
     constructor(private http: HttpClient, private router: Router) {
     }
 
-
-
     register(user: User) {
         user.profilePicture = "C:\Users\seldat\Documents\GitHub\task\ProjectAngular\BooksStore\src\assets\Images\UserProfile.jpg";
         // user.profilePicture = "../../assets/Images/UserProfile.jpg";

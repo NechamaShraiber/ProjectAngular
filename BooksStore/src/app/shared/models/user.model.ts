@@ -4,6 +4,4 @@ export class User {
     UserName: string;
     password:string;
     profilePicture:string;
-
-
 }
