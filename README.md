@@ -12,8 +12,7 @@
 
 ## Run this app in dev mode- client side:
 ```bash
-clone:
-'https://github.com/NechamaShraiber/ProjectAngular'
+clone 'https://github.com/NechamaShraiber/ProjectAngular'
 cd BooksStore
 npm i
 ng serve --open
