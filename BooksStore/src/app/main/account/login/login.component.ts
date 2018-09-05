@@ -28,7 +28,6 @@ export class LoginComponent {
       f => f.value && f.value.length < min ? { "val": `${cntName} is min ${min} chars` } : null,
       f => f.value && !<string>f.value.match(reg) ? cntName == 'password' ? { "val": `${cntName} must contains  english letters or numbers` } :
         { "val": `${cntName} must contains only english letters` } : null
-
     ];
   }
 }

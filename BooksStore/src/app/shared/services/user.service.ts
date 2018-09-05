@@ -20,7 +20,8 @@ export class UserService {
 
 
     register(user: User) {
-        user.profilePicture = "../../assets/Images/UserProfile.jpg";
+        user.profilePicture = "C:\Users\seldat\Documents\GitHub\task\ProjectAngular\BooksStore\src\assets\Images\UserProfile.jpg";
+        // user.profilePicture = "../../assets/Images/UserProfile.jpg";
         return this.http.post(this.url.concat('/register'), user).subscribe(res => {
             this.addUserToLocalStorage(user);
         this.router.navigate(["BooksStore/account/home"]);
