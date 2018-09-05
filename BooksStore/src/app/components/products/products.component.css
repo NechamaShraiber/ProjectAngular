@@ -4,3 +4,9 @@ li{
     padding: 0;
     padding-top: 0.5vh;
 }
+.search-icon {
+    position: relative;
+    float: right;
+    top: -24px;
+    left: -10px;
+  }
