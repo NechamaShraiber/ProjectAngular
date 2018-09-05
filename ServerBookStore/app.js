@@ -3,23 +3,37 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require("body-parser");
 const cors = require('cors')
+
 const app = express();
+
+const basePath = path.join(__dirname + "/dist");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get(`/`, (req, res) => {
+    let linkList = "";
+    let resPage = fs.readFileSync("links.html", "utf-8");
+    console.log(resPage);
+    fs.readdir(basePath, (err, files) => {
+        files.forEach((file) => {
+            linkList += `<li><a href="/${file}" target="blank">${file}</a></li>`;
+        })
+        res.send(resPage.replace("placeHolder", linkList));
+    });
 
-// curl -v -X POST -H "Content-type: application/json" -d "{\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/login
-// curl -v -X POST -H "Content-type: application/json" -d "{\"UserName\":\"fgf\",\"password\":\"0548541419\" }" http://localhost:3500/api/login
-// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehudit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/register
-// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehu3dit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"0548541419\" }" http://localhost:3500/api/register
-// curl -v -X POST -H "Content-type: application/json" -d "{\"FirstName\":\"Yehudit\",\"LastName\":\"Haizler\",\"UserName\":\"YHAIZLER\",\"password\":\"12\" }" http://localhost:3500/api/register
-
-app.get(`/api/users`, (req, res) => {
-    let currentList = require("./users.json");
-    res.send(currentList);
 });
+
+fs.readdir(basePath, (err, files) => {
+    files.forEach((file) => {
+        app.use(express.static(`${basePath}/${file}`));
+        app.get(`/${file}`, (req, res) => {
+            res.sendFile(`${basePath}/${file}/index.html`);
+        });
+    })
+});
+
 
 function validName(name) {
     console.log(name.length);
@@ -77,28 +91,3 @@ app.post("/api/register", (req, res) => {
 
 const port = process.env.PORT || 3500;
 app.listen(port, () => { console.log(`OK`); });
-///////////////////////////////////////////////////////
-// app.post("/api/login", (req, res) => {
-//     console.log('aaa');
-//     let userName = req.body.userName;
-//     let password = req.body.password;
-//     console.log(userName);
-//     console.log(password);
-//     if (isValidLogin(userName, password)) {
-//         console.log('valid');
-//         let currentList = require("./user.json");
-//         console.log(currentList);
-//         let user = currentList.find(user =>
-//             user.userName.toLowerCase() == userName.toLowerCase() &&
-//             user.password.toLowerCase() == password.toLowerCase());
-//         if (user != null)
-//             res.status(201).send(user);
-//         else
-//             res.status(201).send(null);
-//     }
-//     else {
-//         console.log("bad");
-//         res.status(400);
-//     }
-
-// })

@@ -12,7 +12,7 @@ cartBooks:any[];
   constructor(private bookService:BooksService, private cartService:CartService) {
     this.bookService.subject.subscribe(
       {
-        next: (book:any) => this.removeBook(book)
+        next: (book:any) => {this.removeBook(book)}   
       }
     );
    }
@@ -23,7 +23,6 @@ cartBooks:any[];
 removeBook(book:any)
 {
   this.cartService.removeBookFromCart(book);
- 
 }
 
 }
