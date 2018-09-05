@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const app = express();
 
-const basePath = path.join(__dirname + "/dist");
+const basePath = path.join(__dirname );
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
