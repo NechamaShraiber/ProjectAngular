@@ -10,7 +10,7 @@ import { User } from "../models/user.model";
     providedIn: 'root'
 })
 export class UserService {
-    url: string = " http://localhost:3500/api";
+    url: string = "https://still-crag-32940.herokuapp.com/api";
     usersList: User[] = [];
     u: User;
     subAnonymous = new Subject();
@@ -28,7 +28,7 @@ export class UserService {
     }
 
     login(loginner: User) {
-        this.http.post("http://localhost:3500/api/login", loginner).subscribe(
+        this.http.post(this.url.concat('/login'), loginner).subscribe(
             res => {
                 loginner = JSON.parse(JSON.stringify(res));
                 console.log(loginner);
