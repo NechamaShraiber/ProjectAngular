@@ -1,6 +1,8 @@
+<div class="container">
 <h5>search:</h5>
 <input type="text" (keyup)="onKeyUp($event)">
 <button (click)="tempFunc()">תמונות</button>
+</div>
 <ul class="row">
     <li *ngFor="let book of books[0]" class=" col-md-4">
         <app-product-preview [book]="book"></app-product-preview>

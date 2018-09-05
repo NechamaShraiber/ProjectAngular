@@ -34,6 +34,7 @@
   /* box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);  */
   box-shadow: rgba(0, 0, 0, 0.75) 10px 10px 5px 0px;
    margin: 0.5vw;
+   border-radius: 1vh;
 }
 .bookCard img {
   height: 100%;
@@ -42,6 +43,8 @@
   -o-object-fit: cover;
      object-fit: cover;
   flex: 1 1 auto;
+  border-radius: 1vh 0 0 1vh;
+  border-right: 1px solid;
 }
 
 .bookCard-body {
