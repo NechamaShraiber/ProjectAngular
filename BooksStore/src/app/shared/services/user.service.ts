@@ -18,11 +18,10 @@ export class UserService {
     }
 
     register(user: User) {
-        user.profilePicture = "C:\Users\seldat\Documents\GitHub\task\ProjectAngular\BooksStore\src\assets\Images\UserProfile.jpg";
-        // user.profilePicture = "../../assets/Images/UserProfile.jpg";
+        user.profilePicture = "../../assets/Images/UserProfile.jpg";
         return this.http.post(this.url.concat('/register'), user).subscribe(res => {
             this.addUserToLocalStorage(user);
-        this.router.navigate(["BooksStore/account/home"]);
+            this.router.navigate(["BooksStore/account/home"]);
         }
         ), err => {
         }
@@ -34,15 +33,15 @@ export class UserService {
                 loginner = JSON.parse(JSON.stringify(res));
                 console.log(loginner);
                 this.addUserToLocalStorage(loginner);
-        this.router.navigate(["BooksStore/account/home"]);
-                
+                this.router.navigate(["BooksStore/account/home"]);
+
             },
             err => {
                 this.router.navigate(["BooksStore/account/register"]);
             }
         )
     }
-    
+
     addUserToLocalStorage(user) {
         localStorage.setItem('user', JSON.stringify(user));
         this.subAnonymous.next(true);
